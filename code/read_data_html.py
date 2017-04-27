@@ -1,3 +1,4 @@
+# coding=utf-8
 from bs4 import BeautifulSoup
 import requests
 from time import sleep
@@ -10,6 +11,7 @@ import requests, json
 #print len([td for td in tds if not is_video(td)])
 # 21 for me, might be different for you
 
+fig_price = []
 
 def prd_info(td):
     """given a BeautifulSoup <td> Tag representing a book,
@@ -17,11 +19,11 @@ def prd_info(td):
     #print td
     PrdName = td.find("div", "mytext_name").text
     Price = td.find("div", re.compile("^(mytext_cash_number)")).text
-    #"^mytext_cash_number"
-    #print td.find("div", re.compile("^(mytext_cash_number)")).text
 
-    print "PrdName-----------",PrdName
-    print "Price---------",Price
+    fig_price.append(Price)
+    #print "PrdName-----------",PrdName
+    #print "Price---------",Price
+    #print "fig_name-------------",fig_price
 
     return {
         "ProName" : PrdName,
@@ -47,8 +49,84 @@ for page_num in range(1, NUM_PAGES + 1):
 # now be a good citizen and respect the robots.txt!
 sleep(2)
 
-print prd
-print(len(prd))
+#print prd
+#print(len(prd))
+print "----fig_price: ----" ,fig_price
+
+test = int(fig_price[1]) + int(fig_price[2])
+print "----test: ----",test
+
+
+
+
+
+
+
+
+
+
+
+tran_int = []
+one_th = 0
+two_th = 0
+three_th = 0
+four_th = 0
+mo_than_five_th = 0
+for i in range(0, len(prd), 1):
+    if int(fig_price[i]) < 1000 :
+        one_th +=1
+    elif (int(fig_price[i]) > 1000 and int(fig_price[i]) < 2000):
+        two_th += 1
+    elif (int(fig_price[i]) > 2000 and int(fig_price[i]) < 3000):
+        three_th += 1
+    elif (int(fig_price[i]) > 3000 and int(fig_price[i]) < 4000):
+        four_th += 1
+    else:
+        mo_than_five_th += 1
+    #print one_th
+
+
+print "----one_th: ----",one_th
+print "----two_th: ----",two_th
+print "----three_th: ----",three_th
+print "----four_th: ----",four_th
+print "----mo_than_five_th: ----",mo_than_five_th
+
+
+#print one_th
+#print two_th
+
+#print "----one_th: ----",one_th
+
+
+
+
+price_q = [one_th,two_th,three_th,four_th,mo_than_five_th]
+my_xticks = ['< 1000','1000 - 2000','2000 - 3000','3000 - 4000','> 4000']
+num_num = [1,2,3,4,5]
+plt.xticks(num_num, my_xticks)
+plt.plot(num_num, price_q, color='green', marker='o', linestyle='solid')
+
+# add a title
+plt.title("Product data")
+# add a label to the y-axis
+plt.ylabel("Quantity")
+# add a label to the x-axis
+plt.xlabel("Price")
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -79,5 +157,3 @@ print(len(prd))
 #plt.ylabel("# of data books")
 #plt.title("Data is Big!")
 #plt.show()
-
-
