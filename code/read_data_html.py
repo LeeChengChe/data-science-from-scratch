@@ -55,17 +55,6 @@ print "----fig_price: ----" ,fig_price
 
 test = int(fig_price[1]) + int(fig_price[2])
 print "----test: ----",test
-
-
-
-
-
-
-
-
-
-
-
 tran_int = []
 one_th = 0
 two_th = 0
@@ -83,7 +72,7 @@ for i in range(0, len(prd), 1):
         four_th += 1
     else:
         mo_than_five_th += 1
-    #print one_th
+
 
 
 print "----one_th: ----",one_th
@@ -91,13 +80,6 @@ print "----two_th: ----",two_th
 print "----three_th: ----",three_th
 print "----four_th: ----",four_th
 print "----mo_than_five_th: ----",mo_than_five_th
-
-
-#print one_th
-#print two_th
-
-#print "----one_th: ----",one_th
-
 
 
 
@@ -114,46 +96,3 @@ plt.ylabel("Quantity")
 # add a label to the x-axis
 plt.xlabel("Price")
 plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#def get_year(book):
-#    """book["date"] looks like 'November 2014' so we need to
-#    split on the space and then take the second piece"""
-#    return int(book["date"].split()[1])
-
-# 2017 is the last complete year of data (when I ran this)
-#year_counts = Counter(get_year(book) for book in books
-#                if get_year(book) <= 2017)
-
-#years = sorted(year_counts)
-#book_counts = [year_counts[year] for year in years]
-
-#plt.plot(years, book_counts)
-#plt.ylabel("# of data books")
-#plt.title("Data is Big!")
-#plt.show()
