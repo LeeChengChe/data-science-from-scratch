@@ -4,6 +4,7 @@ from linear_algebra import distance
 from statistics import mean
 import math, random
 import matplotlib.pyplot as plt
+import plot_state_borders as plt1
 
 def raw_majority_vote(labels):
     votes = Counter(labels)
@@ -62,7 +63,7 @@ def plot_cities():
         plt.scatter(x, y, color=colors[language], marker=markers[language],
                           label=language, zorder=10)
 
-    plot_state_borders(plt)    # assume we have a function that does this
+    plt1.plot_state_borders(plt)    # assume we have a function that does this
 
     plt.legend(loc=0)          # let matplotlib choose the location
     plt.axis([-130,-60,20,55]) # set the axes
@@ -107,7 +108,7 @@ def random_distances(dim, num_pairs):
 if __name__ == "__main__":
 
     # try several different values for k
-    for k in [1, 3, 5, 7]:
+    for k in [2, 4, 6, 8,20]:
         num_correct = 0
 
         for location, actual_language in cities:
@@ -134,3 +135,5 @@ if __name__ == "__main__":
         avg_distances.append(mean(distances))     # track the average
         min_distances.append(min(distances))      # track the minimum
         print dim, min(distances), mean(distances), min(distances) / mean(distances)
+
+plot_cities();
