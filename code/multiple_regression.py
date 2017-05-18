@@ -103,6 +103,13 @@ if __name__ == "__main__":
     print "r-squared", multiple_r_squared(x, daily_minutes_good, beta)
     print
 
+    x1 = [1,30,2,0]
+    x2 = [1,60,6,1]
+    print predict(x1,beta)
+    print predict(x2,beta)
+    print ""
+
+
     print "digression: the bootstrap"
     # 101 points all very close to 100
     close_to_100 = [99.5 + random.random() for _ in range(101)]

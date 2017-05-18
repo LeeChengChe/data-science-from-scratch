@@ -111,6 +111,23 @@ def train_and_test_model(path):
     counts = Counter((is_spam, spam_probability > 0.5) # (actual, predicted)
                      for _, is_spam, spam_probability in classified)
 
+
+    print "----------test begin part 1 is spam-------------"
+    msg = "i like to play basketball"
+    print msg
+    print tokenize(msg)
+    a = classifier.classify(msg)
+    print a
+    print "-----------test end----------"
+
+    print "----------test begin part 2 is091609151152s1rssr spam-------------"
+    msg_two = "software"
+    print msg_two
+    print tokenize(msg_two)
+    b = classifier.classify(msg_two)
+    print b
+    print "-----------test end----------"
+
     print counts
 
     classified.sort(key=lambda row: row[2])
