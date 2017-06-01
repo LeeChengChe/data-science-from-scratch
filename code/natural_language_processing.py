@@ -251,7 +251,7 @@ if __name__ == "__main__":
 
     random.seed(0)
     print "bigram sentences"
-    for i in range(10):
+    for i in range(20):
         print i, generate_using_bigrams(transitions)
     print
 
@@ -269,7 +269,7 @@ if __name__ == "__main__":
         trigram_transitions[(prev, current)].append(next)
 
     print "trigram sentences"
-    for i in range(10):
+    for i in range(20):
         print i, generate_using_trigrams(starts, trigram_transitions)
     print
 
@@ -286,7 +286,7 @@ if __name__ == "__main__":
     }
 
     print "grammar sentences"
-    for i in range(10):
+    for i in range(20):
         print i, " ".join(generate_sentence(grammar))
     print
 

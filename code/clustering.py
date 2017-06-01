@@ -65,7 +65,7 @@ def plot_squared_clustering_errors(plt):
 
 def recolor_image(input_file, k=5):
 
-    img = mpimg.imread(path_to_png_file)
+    img = mpimg.imread(input_file)
     pixels = [pixel for row in img for pixel in row]
     clusterer = KMeans(k)
     clusterer.train(pixels) # this might take a while    
@@ -186,6 +186,11 @@ if __name__ == "__main__":
 
 
     print "bottom up hierarchical clustering"
+
+    print "color cluster"
+    recolor_image("/test/nisinokana.png",3)
+    base_cluster = bottom_up_cluster(inputs)
+
 
     base_cluster = bottom_up_cluster(inputs)
     print base_cluster
