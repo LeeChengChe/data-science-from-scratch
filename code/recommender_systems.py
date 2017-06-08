@@ -133,6 +133,9 @@ if __name__ == "__main__":
     print popular_interests
     print
 
+    print "TeTsu like:","Python","Java","Hbase"
+    print most_popular_new_interests(["Python","Java","HBase"])
+
     print "Most Popular New Interests"
     print "already like:", ["NoSQL", "MongoDB", "Cassandra", "HBase", "Postgres"]
     print most_popular_new_interests(["NoSQL", "MongoDB", "Cassandra", "HBase", "Postgres"])
@@ -148,6 +151,9 @@ if __name__ == "__main__":
     print "Suggestions for 0"
     print user_based_suggestions(0)
     print
+
+    print "unique_interests"
+    print unique_interests
 
     print "Item based similarity"
     print "most similar to 'Big Data'"
